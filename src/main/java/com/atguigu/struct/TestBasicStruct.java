@@ -3,8 +3,10 @@ package com.atguigu.struct;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * Description ==> TODO
@@ -32,26 +34,124 @@ public class TestBasicStruct {
 
     }
 
+
+
+    @Test
+    public void testDaffodil(){
+
+        for (int i = 100; i < 1000; i++) {
+            //157 467
+            int num01 = i/100;
+            int num02 = (i/10)%10;
+            int num03 = i%10;
+            if (num01*num01*num01+num02*num02*num02+num03*num03*num03 == i){
+                System.out.println("水仙花数为:"+i);
+            }
+        }
+
+    }
+
+    @Test
+    public void testArrErr(){
+
+//        int [] arr = {10,20};
+        int [] arr = null;
+
+//        System.out.println(arr[2]);
+
+        System.out.println(arr[0]);
+
+    }
+
+
+    @Test
+    public void testFindFromArr(){
+
+        int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83, 0};
+        boolean flag = true;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == -33){
+                System.out.println("索引值:"+i);
+                flag = false;
+                break;
+            }
+        }
+        if (flag){
+            throw new RuntimeException("淦!!找不到!!!");
+        }
+
+
+
+    }
+
+
+    @Test
+    public void testCopyArray(){
+
+        int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83, 0};
+
+        System.out.println("原数组:"+Arrays.toString(arr));
+        //直接用数组的工具类即可实现数组的复制
+//        int[] ints = Arrays.copyOf(arr, arr.length);
+//      原生的数组复制
+        int [] ints = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            ints[i] = arr[i];
+        }
+
+        System.out.println("复数组:"+Arrays.toString(ints));
+
+    }
+
+
+
+    @Test
+    public void testReverse(){
+
+        int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83, 0};
+
+        System.out.println("反转之前:"+Arrays.toString(arr));
+
+        int [] arrR = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+//          这里的话就是原来数组的第一个数放到新数组的最后一个位置,原来数组的第二个数放到新数组的倒数第二个位置..
+//          最后一位是arr.length - 1,但是的话因为是动态变化的所以的话这个数需要-i...
+            arrR[arr.length-i-1] = arr[i];
+        }
+
+        System.out.println("反转之后:"+Arrays.toString(arrR));
+
+
+
+    }
+
     //day07
     @Test
     public void testBubble() {
 
-        int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83,0};
+        int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83, 0};
 
         System.out.println("排序之前:" + Arrays.toString(arr));
 
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length-1-i; j++) {
-                if (arr[j]>arr[j+1]){
-                    arr[j] = arr[j]^arr[j+1];
-                    arr[j+1] = arr[j]^arr[j+1];
-                    arr[j] = arr[j]^arr[j+1];
-                }
+//          这里的外面那个循环的长度的话好像即使是偏大的话也是不影响结果的说,但是的话不能偏小,取得最好是arr的长度-1即可
+//        for (int i = 0; i < arr.length + 100; i++) {
+//        for (int i = 0; i < arr.length+10000; i++) {
+//            为什么是arr.length - 1次呢?因为的话举个例子吧:加入有三个数,其实用冒泡排序比较的话只需要比较两次足矣...所以的话规律就是长度的次数减一
 
+//      外面的那个大循环的话是因为冒泡排序的话遍历完了第一次之后还需要遍历,直到遍历到第一位的时候才算是确保可以完整的排序,
+//      这个外部循环则是遍历的大循环的周期数目的
+        for (int i = 0; i < arr.length - 1; i++) {
+//          里面的小循环则是每一次遍历数组里面的每一个元素的,遍历完了之后再到外面的大循环重新开始遍历..
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    arr[j] = arr[j] ^ arr[j + 1];
+                    arr[j + 1] = arr[j] ^ arr[j + 1];
+                    arr[j] = arr[j] ^ arr[j + 1];
+                }
             }
         }
-
-
 
         System.out.println("排序之后:" + Arrays.toString(arr));
 
@@ -368,7 +468,7 @@ public class TestBasicStruct {
 
 
     @Test
-    public void testEquals(){
+    public void testEquals() {
         User1001 user1001 = new User1001(1001, "1001");
         User1001 user1002 = new User1001(1001, "1001");
         System.out.println(user1001.equals(user1002));
@@ -377,7 +477,7 @@ public class TestBasicStruct {
     }
 
     @Test
-    public void testEquals02(){
+    public void testEquals02() {
         Person1001 person1001 = new Person1001("金毛", 2);
         Person1001 person1002 = new Person1001("金毛", 2);
         Dog1001 dog1001 = new Dog1001("金毛", 2);
