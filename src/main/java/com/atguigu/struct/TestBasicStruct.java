@@ -36,46 +36,22 @@ public class TestBasicStruct {
     @Test
     public void testBubble() {
 
-        int[] arr = {12, 34, 7, 9, 47, 33, 89, 21, 56, 83};
+        int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83,0};
 
         System.out.println("排序之前:" + Arrays.toString(arr));
 
-        long start = System.currentTimeMillis();
-
-        for (int k = 0; k < 100000000; k++) {
-
-//            我们自己写的
-//            int circle = 0;
-//            for (int i = 0; i < arr.length - 1 - circle; i++) {
-//                if (arr[i] > arr[i + 1]) {
-//                    arr[i] = arr[i + 1] ^ arr[i];
-//                    arr[i + 1] = arr[i + 1] ^ arr[i];
-//                    arr[i] = arr[i + 1] ^ arr[i];
-//                }
-//                if (i == (arr.length - 2 - circle)) {
-//                    i = -1;
-//                    circle++;
-//                }
-//            }
-
-//          老师的写法3356
-            for(int i = 0;i < arr.length - 1;i++){
-                for(int j = 0;j < arr.length - 1 - i;j++){
-                    if(arr[j] > arr[j + 1]){
-                        int temp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = temp;
-                    }
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length-1-i; j++) {
+                if (arr[j]>arr[j+1]){
+                    arr[j] = arr[j]^arr[j+1];
+                    arr[j+1] = arr[j]^arr[j+1];
+                    arr[j] = arr[j]^arr[j+1];
                 }
-            }
 
+            }
         }
 
 
-        long end = System.currentTimeMillis();
-
-
-        System.out.println("耗时:" + (end - start));//5722//5711
 
         System.out.println("排序之后:" + Arrays.toString(arr));
 
