@@ -25,6 +25,7 @@ public class TestBasicStruct {
 
     public static void main(String[] args) {
 
+
         Scanner scanner = new Scanner(System.in);
 
         String next = scanner.next();
@@ -35,27 +36,61 @@ public class TestBasicStruct {
     }
 
 
+    @Test
+    public void testPrimeNumber() {
+        long start = System.currentTimeMillis();
+        int count = 0;
+        for (int i = 2; i <= 10000; i++) {
+            boolean flag = true;
+//            注意!!求平方根的时候记得加上<=而不是< ,因为的话会出现类似4这些特别的数...
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                count++;
+//                System.out.println("第" + count + "个质数:" + i);
+            }
+        }
+        long end = System.currentTimeMillis();
+
+//        System.out.println("总共有" + count + "个质数;耗时:" + (end - start));//1.0版本,无优化: 139 142 140
+//        System.out.println("总共有" + count + "个质数;耗时:" + (end - start));//2.0版本,优化break: 18 17 18
+        System.out.println("总共有" + count + "个质数;耗时:" + (end - start));//3.0版本,优化平方根: 2 1 1
+
+    }
+
 
     @Test
-    public void testDaffodil(){
+    public void testBitCalc() {
+        int i = ~0;
+        System.out.println(i);
+    }
+
+
+    @Test
+    public void testDaffodil() {
 
         for (int i = 100; i < 1000; i++) {
             //157 467
-            int num01 = i/100;
-            int num02 = (i/10)%10;
-            int num03 = i%10;
-            if (num01*num01*num01+num02*num02*num02+num03*num03*num03 == i){
-                System.out.println("水仙花数为:"+i);
+            int num01 = i / 100;
+            int num02 = (i / 10) % 10;
+            int num03 = i % 10;
+            if (num01 * num01 * num01 + num02 * num02 * num02 + num03 * num03 * num03 == i) {
+                System.out.println("水仙花数为:" + i);
             }
         }
 
     }
 
+
     @Test
-    public void testArrErr(){
+    public void testArrErr() {
 
 //        int [] arr = {10,20};
-        int [] arr = null;
+        int[] arr = null;
 
 //        System.out.println(arr[2]);
 
@@ -65,64 +100,61 @@ public class TestBasicStruct {
 
 
     @Test
-    public void testFindFromArr(){
+    public void testFindFromArr() {
 
         int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83, 0};
         boolean flag = true;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == -33){
-                System.out.println("索引值:"+i);
+            if (arr[i] == -33) {
+                System.out.println("索引值:" + i);
                 flag = false;
                 break;
             }
         }
-        if (flag){
+        if (flag) {
             throw new RuntimeException("淦!!找不到!!!");
         }
-
 
 
     }
 
 
     @Test
-    public void testCopyArray(){
+    public void testCopyArray() {
 
         int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83, 0};
 
-        System.out.println("原数组:"+Arrays.toString(arr));
+        System.out.println("原数组:" + Arrays.toString(arr));
         //直接用数组的工具类即可实现数组的复制
 //        int[] ints = Arrays.copyOf(arr, arr.length);
 //      原生的数组复制
-        int [] ints = new int[arr.length];
+        int[] ints = new int[arr.length];
 
         for (int i = 0; i < arr.length; i++) {
             ints[i] = arr[i];
         }
 
-        System.out.println("复数组:"+Arrays.toString(ints));
+        System.out.println("复数组:" + Arrays.toString(ints));
 
     }
 
 
-
     @Test
-    public void testReverse(){
+    public void testReverse() {
 
         int[] arr = {12, 34, -7, 9, 47, -33, 89, 21, 56, 83, 0};
 
-        System.out.println("反转之前:"+Arrays.toString(arr));
+        System.out.println("反转之前:" + Arrays.toString(arr));
 
-        int [] arrR = new int[arr.length];
+        int[] arrR = new int[arr.length];
 
         for (int i = 0; i < arr.length; i++) {
 //          这里的话就是原来数组的第一个数放到新数组的最后一个位置,原来数组的第二个数放到新数组的倒数第二个位置..
 //          最后一位是arr.length - 1,但是的话因为是动态变化的所以的话这个数需要-i...
-            arrR[arr.length-i-1] = arr[i];
+            arrR[arr.length - i - 1] = arr[i];
         }
 
-        System.out.println("反转之后:"+Arrays.toString(arrR));
-
+        System.out.println("反转之后:" + Arrays.toString(arrR));
 
 
     }
