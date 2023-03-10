@@ -1,5 +1,7 @@
 package com.atguigu.struct;
 
+import com.atguigu.basic.Circle1001;
+import javafx.scene.shape.Circle;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -18,22 +20,54 @@ import java.util.stream.Collectors;
  */
 public class TestBasicStruct {
 
+    public TestBasicStruct() {
+    }
+
     private static int i03;
 
     private final int I04 = 44;
 
+    private int num1001;
+
 
     public static void main(String[] args) {
 
-
         Scanner scanner = new Scanner(System.in);
-
         String next = scanner.next();
         int i = scanner.nextInt();
         System.out.println("next:" + next);
         System.out.println("i:" + i);
 
     }
+
+
+
+
+    @Test
+    public void testCalcArea(){
+
+        Circle1001 circle1001 = new Circle1001();
+
+        circle1001.setRadius(2);
+
+        circle1001.calcArea(circle1001.getRadius());
+
+    }
+
+
+
+    @Test
+    public void testVariableAndClass(){
+
+        int num1002;
+
+        System.out.println("成员变量num1001:"+num1001);
+
+//        System.out.println("成员变量num1002:"+num1002);
+
+    }
+
+
 
 
     @Test

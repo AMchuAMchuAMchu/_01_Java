@@ -1,5 +1,9 @@
 package com.atguigu.basic;
 
+import org.junit.Test;
+
+import java.util.Arrays;
+
 public class TestJavaBasic {
 
 //  看到day09了
@@ -8,6 +12,80 @@ public class TestJavaBasic {
         Son1001 son1001 = new Son1001();
 
         son1001.showInfo();
+
+    }
+
+
+//  看到day15
+    @Test
+    public void testFinal1001(){
+
+        Dog1002 dog1002 = new Dog1002();
+
+        dog1002.call();
+
+    }
+
+    @Test
+    public void testType1002(){
+
+       Integer i = 1314;
+
+       String s  = "1314";
+
+       int num01 = 1314;
+
+//       i = num01;
+
+//       num01 = i;
+
+//        String s1 = String.valueOf(i);
+
+//        Integer integer = Integer.valueOf(s);
+
+
+
+
+
+
+
+    }
+
+
+    @Test
+    public void testExtends1001(){
+
+        Animal1001 animal1001 = new Dog1001();
+
+        animal1001.eat();
+
+        Dog1001 dog1001 = new Dog1001();
+
+        System.out.println(dog1001.getName());
+
+        System.out.println("======================");
+
+        Animal1002 dog1002 = new Dog1002();
+
+        Dog1002 dog10021 = (Dog1002) new Animal1002();
+
+        dog10021.excrete();
+
+//        System.out.println(dog1002.getName());
+//
+//        dog1002.excrete();
+
+    }
+
+    @Test
+    public  void testFatherSon1001(){
+
+        Son1001 son1001 = new Son1001();
+
+//        System.out.println(son1001.getName());
+
+//        System.out.println(Arrays.toString(son1001.getClass().getDeclaredFields()));
+
 
     }
 
