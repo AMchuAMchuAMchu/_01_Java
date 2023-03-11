@@ -1,8 +1,7 @@
 package com.atguigu.basic;
 
+import com.atguigu.struct.Person1001;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 public class TestJavaBasic {
 
@@ -12,6 +11,19 @@ public class TestJavaBasic {
         Son1001 son1001 = new Son1001();
 
         son1001.showInfo();
+
+    }
+
+
+
+    @Test
+    public void testInnerClass(){
+
+        Person1002.Head head = new Person1002.Head();
+
+        Person1002 person1002 = new Person1002();
+
+        Person1002.Foot foot1 = person1002.new Foot();
 
     }
 

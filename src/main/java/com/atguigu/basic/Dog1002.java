@@ -17,5 +17,10 @@ public class Dog1002 extends Animal1002{
     public void excrete(){
         System.out.println("狗也会排泄..");
     }
+//
+//    public abstract void testAbstract(){
+//        System.out.println(">>>>");
+//    }
+
 
 }

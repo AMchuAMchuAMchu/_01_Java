@@ -5,4 +5,6 @@ public interface Animal1001 {
 
     public void eat();
 
+//    public void hehe();
+
 }
