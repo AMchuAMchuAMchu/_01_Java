@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-public class UnitTestSenior {
+public class TestUnitSenior {
 
 
 //  实现trim方法
@@ -54,6 +54,8 @@ public class UnitTestSenior {
 //
 //    }
 
+
+//  看到day03  字符串
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -75,12 +77,13 @@ public class UnitTestSenior {
     }
 
 
+
+
     @Test
     public void testTrimRealize() {
         int i = ' ';
         System.out.println(i);
         String s = "dwwww";
-
         s.trim();
 
     }
