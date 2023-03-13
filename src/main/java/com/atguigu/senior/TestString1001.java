@@ -12,14 +12,61 @@ public class TestString1001 {
     static Logger logger = Logger.getLogger(TestString1001.class);
 
     public static void main(String[] args) {
-        BasicConfigurator.configure();
-        logger.info(">>>果咩纳塞~~");
-        logger.debug(">>>我的青春恋爱物语果然有问题...");
+//        BasicConfigurator.configure();
+//        logger.info(">>>果咩纳塞~~");
+//        logger.debug(">>>我的青春恋爱物语果然有问题...");
+
+        String s1 = "hello";
+
+        String s2 = "world";
+
+        String s3 = "hello" + "world";
+
+        String s4 = s1 + "world";
+
+        String s5 = s1 + s2;
+
+        String s6 = (s1 + s2).intern();
+
+        System.out.println(">>>>>");
+        System.out.println("s3 == s4:"+(s3 == s4));//false
+        System.out.println("s3 == s5:"+(s3 == s5));//false
+        System.out.println("s4 == s5:"+(s4 == s5));//false
+        System.out.println("s3 == s6:"+(s3 == s6));//true
+
     }
 
+    @Test
+    public void testS102P() {
+
+//        String s1 = "雪乃";
+//
+//        String s2 = "雪乃";
+//
+//        System.out.println(s1==s2);
+
+        String s1 = "hello";
+
+        String s2 = "world";
+
+        String s3 = "hello" + "world";
+
+        String s4 = s1 + "world";
+
+        String s5 = s1 + s2;
+
+        String s6 = (s1 + s2).intern();
+
+        System.out.println("s3==s4:" + s3 == s4);
+        System.out.println("s3==s5:" + s3 == s5);
+        System.out.println("s4==s5:" + s4 == s5);
+        System.out.println("s3==s6:" + s3 == s6);
+
+
+    }
 
     @Test
-    public void testString1001(){
+    public void testString1001() {
 
         String s1 = "AnimeYukino";
 
