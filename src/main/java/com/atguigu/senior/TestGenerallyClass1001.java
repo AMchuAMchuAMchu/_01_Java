@@ -3,13 +3,20 @@ package com.atguigu.senior;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
+import java.math.BigInteger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.Random;
 
-public class TestString1001 {
+public class TestGenerallyClass1001 {
 
 
-    static Logger logger = Logger.getLogger(TestString1001.class);
+    static Logger logger = Logger.getLogger(TestGenerallyClass1001.class);
 
     public static void main(String[] args) {
 //        BasicConfigurator.configure();
@@ -36,13 +43,65 @@ public class TestString1001 {
 
     }
 
+
+
+    @Test
+    public void testDateTime1001() throws ParseException {
+
+        String s = "2017-08-16";
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date parse = simpleDateFormat.parse(s);
+
+        java.sql.Date date = new java.sql.Date(parse.getTime());
+
+        System.out.println(date.getClass());
+
+        System.out.println(parse.getClass());
+
+    }
+
+    @Test
+    public void testBigInteger(){
+
+        BigInteger bigInteger = new BigInteger("999999999999999999999");
+
+        System.out.println(bigInteger.abs());
+
+        BigInteger add = bigInteger.add(new BigInteger("101"));
+
+        System.out.println(add);
+        BigInteger subtract = add.subtract(new BigInteger("100"));
+        System.out.println(subtract);
+
+        BigInteger multiply = subtract.multiply(new BigInteger("3"));
+
+        System.out.println(multiply);
+
+        BigInteger divide = multiply.divide(new BigInteger("2"));
+
+        System.out.println(divide);
+
+    }
+
+
+
+    @Test
+    public void testSystem(){
+        System.out.println(System.getProperty("os.version"));
+        System.out.println(System.getProperty("os.arch"));
+        for (int i = 0; i < 100; i++) {
+            System.out.println(new Random().nextInt(11));
+        }
+    }
+
     @Test
     public void testComparator1001() {
 
         Comparator<User1002> c1 = new Comparator<User1002>() {
             @Override
             public int compare(User1002 o1, User1002 o2) {
-
                 if (o1.getAge() > o2.getAge()){
                     return 1;
                 }else if (o1.getAge() < o2.getAge()){
