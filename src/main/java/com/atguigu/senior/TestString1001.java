@@ -1,10 +1,10 @@
 package com.atguigu.senior;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class TestString1001 {
 
@@ -29,12 +29,49 @@ public class TestString1001 {
         String s6 = (s1 + s2).intern();
 
         System.out.println(">>>>>");
-        System.out.println("s3 == s4:"+(s3 == s4));//false
-        System.out.println("s3 == s5:"+(s3 == s5));//false
-        System.out.println("s4 == s5:"+(s4 == s5));//false
-        System.out.println("s3 == s6:"+(s3 == s6));//true
+        System.out.println("s3 == s4:" + (s3 == s4));//false
+        System.out.println("s3 == s5:" + (s3 == s5));//false
+        System.out.println("s4 == s5:" + (s4 == s5));//false
+        System.out.println("s3 == s6:" + (s3 == s6));//true
 
     }
+
+    @Test
+    public void testComparator1001() {
+
+        Comparator<User1002> c1 = new Comparator<User1002>() {
+            @Override
+            public int compare(User1002 o1, User1002 o2) {
+
+                if (o1.getAge() > o2.getAge()){
+                    return 1;
+                }else if (o1.getAge() < o2.getAge()){
+                    return -1;
+                }
+                return 0;
+            }
+        };
+
+        User1002 user101 = new User1002("雪乃", 17);
+        User1002 user102 = new User1002("赤瞳", 15);
+
+        System.out.println(c1.compare(user102, user101));
+
+
+    }
+
+    @Test
+    public void testComparable1001() {
+
+        TestCompareTo1001 t1 = new TestCompareTo1001("雪乃", 17);
+
+        TestCompareTo1001 t2 = new TestCompareTo1001("赤瞳", 15);
+
+        System.out.println(t2.compareTo(t1));
+
+
+    }
+
 
     @Test
     public void testS102P() {
