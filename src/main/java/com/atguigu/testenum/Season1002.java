@@ -1,6 +1,6 @@
 package com.atguigu.testenum;
 
-public enum Season1002 {
+public enum Season1002{
     SPRING("春天","雪乃"),
     SUMMER("夏天","赤瞳"),
     FALL("秋天","楪祈"),
