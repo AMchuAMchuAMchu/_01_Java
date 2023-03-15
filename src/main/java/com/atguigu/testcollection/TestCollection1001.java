@@ -13,6 +13,88 @@ public class TestCollection1001 {
 
 
 
+    @Test
+    public void testMap1002(){
+
+        ArrayList<String> animeList = new ArrayList<>();
+
+        animeList.add("雪乃");
+        animeList.add("Yukino");
+        animeList.add("楪祈");
+        animeList.add("校条祭");
+        animeList.add("由比滨结衣");
+//
+//        for (int i = 0; i < animeList.size(); i++) {
+//            System.out.println("01>>"+animeList.get(i));
+//        }
+
+//        for (String s : animeList) {
+//            System.out.println("02>>"+s);
+//        }
+
+//        Iterator<String> iterator = animeList.iterator();
+//
+//        while (iterator.hasNext()){
+//            System.out.println("03>>"+iterator.next());
+//        }
+
+//        animeList.forEach(p-> System.out.println("04>>"+p));
+
+//        animeList.forEach(System.out::println);
+
+
+    }
+
+    @Test
+    public void testCollections(){
+
+        ArrayList<String> animeList = new ArrayList<>();
+
+        animeList.add("雪乃");
+        animeList.add("Yukino");
+        animeList.add("楪祈");
+        animeList.add("校条祭");
+        animeList.add("由比滨结衣");
+
+        Object[] objects = animeList.toArray();
+
+
+
+    }
+
+
+    @Test
+    public void testMap1001(){
+
+        HashMap<String, Object> animeMap = new HashMap<>();
+
+        animeMap.put("魔法科的劣等生","司波深雪");
+        animeMap.put("转生王女于天才千金的魔法革命","艾尼斯飞亚");
+        animeMap.put("刀剑神域","亚丝娜");
+        animeMap.put(null,null);
+        animeMap.put("刀剑神域1001","亚丝娜");
+        animeMap.put("1001","我妻善逸");
+
+
+        animeMap.entrySet().forEach(System.out::println);
+        System.out.println(animeMap.size());
+//        System.out.println(animeMap.remove("1001"));
+        System.out.println(animeMap.get("1001"));
+
+
+
+
+    }
+
+
+    @Test
+    public void testArray1001(){
+
+        Object [] o = {};
+        System.out.println(o.length);
+        System.out.println(Arrays.toString(o));
+
+    }
 
     @Test
     public void testSet(){
