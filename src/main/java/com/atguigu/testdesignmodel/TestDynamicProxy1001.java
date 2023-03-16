@@ -52,7 +52,6 @@ public class TestDynamicProxy1001 {
 
     public static void main(String[] args) {
 
-
         F22 f22 = new F22();
 
         Plane proxyInstance = (Plane) ProxyFactory.getProxyInstance(f22);
